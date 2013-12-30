@@ -128,6 +128,8 @@ struct wpa_driver_nl80211_data {
 	int ignore_if_down_event;
 	struct rfkill_data *rfkill;
 	struct wpa_driver_capa capa;
+	u8 *extended_capa, *extended_capa_mask;
+	unsigned int extended_capa_len;
 	int has_capability;
 
 	int operstate;
@@ -137,7 +139,9 @@ struct wpa_driver_nl80211_data {
 	struct nl_cb *nl_cb;
 
 	u8 auth_bssid[ETH_ALEN];
+	u8 auth_attempt_bssid[ETH_ALEN];
 	u8 bssid[ETH_ALEN];
+	u8 prev_bssid[ETH_ALEN];
 	int associated;
 	u8 ssid[32];
 	size_t ssid_len;
@@ -158,6 +162,8 @@ struct wpa_driver_nl80211_data {
 	unsigned int scan_for_auth:1;
 	unsigned int retry_auth:1;
 	unsigned int use_monitor:1;
+	unsigned int ignore_next_local_disconnect:1;
+	unsigned int allow_p2p_device:1;
 
 	u64 remain_on_chan_cookie;
 	u64 send_action_cookie;
