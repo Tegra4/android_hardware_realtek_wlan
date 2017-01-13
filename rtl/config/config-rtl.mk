@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
--include hardware/realtek/libbt/firmware/rtlbtfw_cfg.mk
+
 ########################
 PRODUCT_COPY_FILES += \
     hardware/realtek/wlan/rtl/config/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
